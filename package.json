@@ -25,7 +25,9 @@
   },
   "devDependencies": {
     "@digix/tempo": "^0.2.0",
-    "eth-lightwallet": "*"
+    "eth-lightwallet": "*",
+    "lodash": "^4.17.10",
+    "truffle-hdwallet-provider": "0.0.5"
   },
   "dependencies": {
     "ganache-cli": "^6.0.3"
