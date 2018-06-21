@@ -74,6 +74,7 @@ contract('GnosisSafeTeamEdition', function(accounts) {
     }
 
     it('should change threshold from 100 to 200', async () => {
+        // await web3.eth.sendTransaction({from: accounts[0], to: gnosisSafe.address, value: web3.toWei(0.1, 'ether')})
         // Check the dailyLimit has been initialized correctly
         const ethAddress = 0
         await checkDailyLimit(ethAddress, 100, 0)
@@ -81,7 +82,7 @@ contract('GnosisSafeTeamEdition', function(accounts) {
         // Prepare data for editing threshold
         const newDailyLimit = 200
         const data = await dailyLimitModule.contract.changeDailyLimit.getData(ethAddress, newDailyLimit)
-        await executeTransaction('Edit threshold to 200', [accounts[0]], gnosisSafe.address, 0, data, CALL, accounts[0])
+        await executeTransaction('Edit threshold to 200', [accounts[0]], dailyLimitModule.address, 0, data, CALL, accounts[0])
         await checkDailyLimit(ethAddress, newDailyLimit, 0)
     })
 })
